@@ -9,7 +9,13 @@
       <dd><%= @apartment.apartment_number %></dd>
 
       <dt>Building</dt>
-      <dd><%= @apartment.building_id %></dd>
+      <dd>
+        <% if @apartment.building.present? %>
+          <a href="/buildings/<%= @apartment.building_id %>">
+            <%= @apartment.building.street_address %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

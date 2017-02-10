@@ -19,11 +19,23 @@
 
       <% @packages.each do |package| %>
       <tr>
-        <td><%= package.apartment.created_at %></td>
+        <td>
+          <% if package.apartment.present? %>
+            <a href="/apartments/<%= package.apartment.id %>">
+              <%= package.apartment.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= package.recipient_name %></td>
         <td><%= package.collected %></td>
         <td><img src='<%= package.image %>' class='img-responsive'></td>
-        <td><%= package.user.created_at %></td>
+        <td>
+          <% if package.user.present? %>
+            <a href="/users/<%= package.user.id %>">
+              <%= package.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/packages/<%= package.id %>" class="btn btn-primary">Show</a>
           

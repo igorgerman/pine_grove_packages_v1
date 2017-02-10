@@ -17,7 +17,13 @@
       <% @apartments.each do |apartment| %>
       <tr>
         <td><%= apartment.apartment_number %></td>
-        <td><%= apartment.building.street_address %></td>
+        <td>
+          <% if apartment.building.present? %>
+            <a href="/buildings/<%= apartment.building.id %>">
+              <%= apartment.building.street_address %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/apartments/<%= apartment.id %>" class="btn btn-primary">Show</a>
           <a href="/apartments/<%= apartment.id %>/edit" class="btn btn-warning">Edit</a>

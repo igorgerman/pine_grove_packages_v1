@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Apartment</dt>
-      <dd><%= @package.apartment_id %></dd>
+      <dd>
+        <% if @package.apartment.present? %>
+          <a href="/apartments/<%= @package.apartment_id %>">
+            <%= @package.apartment.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Recipient name</dt>
       <dd><%= @package.recipient_name %></dd>
@@ -18,7 +24,13 @@
       <dd><img src="<%= @package.image %>" class="img-responsive"></dd>
 
       <dt>User</dt>
-      <dd><%= @package.user_id %></dd>
+      <dd>
+        <% if @package.user.present? %>
+          <a href="/users/<%= @package.user_id %>">
+            <%= @package.user.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
