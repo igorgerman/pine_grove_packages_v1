@@ -1,4 +1,6 @@
 class Package < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   # Direct associations
 
   belongs_to :apartment,
