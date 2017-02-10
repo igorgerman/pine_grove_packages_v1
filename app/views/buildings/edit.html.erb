@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @building.errors.any? %>
+  <% @building.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Building #<%= @building.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_building/<%= @building.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for street_address -->
+      <div class="form-group">
+        <label for="street_address" class="control-label">
+          Street address
+        </label>
+
+        <input type="text" id="street_address" name="street_address" placeholder="Street address" class="form-control" value="<%= @building.street_address %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @building.city %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @building.state %>">
+      </div>
+
+      <!-- Label and input for zip_code -->
+      <div class="form-group">
+        <label for="zip_code" class="control-label">
+          Zip code
+        </label>
+
+        <input type="text" id="zip_code" name="zip_code" placeholder="Zip code" class="form-control" value="<%= @building.zip_code %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Building
+      </button>
+      or
+      <a href="/buildings/<%= @building.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
