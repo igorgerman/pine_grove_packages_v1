@@ -1,6 +1,7 @@
 class BuildingsController < ApplicationController
   def index
-    @buildings = Building.page(params[:page]).per(10)
+    @q = Building.ransack(params[:q])
+    @buildings = @q.result(:distinct => true).includes(:apartments).page(params[:page]).per(10)
 
     render("buildings/index.html.erb")
   end

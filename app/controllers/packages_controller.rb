@@ -10,7 +10,8 @@ class PackagesController < ApplicationController
   end
 
   def index
-    @packages = Package.page(params[:page]).per(10)
+    @q = Package.ransack(params[:q])
+    @packages = @q.result(:distinct => true).includes(:user, :apartment).page(params[:page]).per(10)
 
     render("packages/index.html.erb")
   end
