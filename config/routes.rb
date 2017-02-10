@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "apartments#index"
   # Routes for the Package resource:
   # CREATE
   get "/packages/new", :controller => "packages", :action => "new"
