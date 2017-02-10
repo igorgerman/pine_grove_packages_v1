@@ -1,0 +1,72 @@
+<!-- Validation failure messages -->
+<% if @package.errors.any? %>
+  <% @package.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Package #<%= @package.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_package/<%= @package.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for apartment_id -->
+      <div class="form-group">
+        <label for="apartment_id" class="control-label">
+          Apartment
+        </label>
+
+        <input type="text" id="apartment_id" name="apartment_id" placeholder="Apartment" class="form-control" value="<%= @package.apartment_id %>">
+      </div>
+
+      <!-- Label and input for recipient_name -->
+      <div class="form-group">
+        <label for="recipient_name" class="control-label">
+          Recipient name
+        </label>
+
+        <input type="text" id="recipient_name" name="recipient_name" placeholder="Recipient name" class="form-control" value="<%= @package.recipient_name %>">
+      </div>
+
+      <!-- Label and input for collected -->
+      <div class="checkbox">
+        <label for="collected">
+          <input type="checkbox" id="collected" name="collected" value="1" <%= "checked" if @package.collected %>>
+          Collected
+        </label>
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @package.image %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @package.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Package
+      </button>
+      or
+      <a href="/packages/<%= @package.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

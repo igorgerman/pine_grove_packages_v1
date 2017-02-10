@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Package resource:
+  # CREATE
+  get "/packages/new", :controller => "packages", :action => "new"
+  post "/create_package", :controller => "packages", :action => "create"
+
+  # READ
+  get "/packages", :controller => "packages", :action => "index"
+  get "/packages/:id", :controller => "packages", :action => "show"
+
+  # UPDATE
+  get "/packages/:id/edit", :controller => "packages", :action => "edit"
+  post "/update_package/:id", :controller => "packages", :action => "update"
+
+  # DELETE
+  get "/delete_package/:id", :controller => "packages", :action => "destroy"
+  #------------------------------
+
   # Routes for the Building resource:
   # CREATE
   get "/buildings/new", :controller => "buildings", :action => "new"
