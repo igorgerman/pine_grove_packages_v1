@@ -6,6 +6,7 @@ class ApartmentsController < ApplicationController
   end
 
   def show
+    @package = Package.new
     @apartment = Apartment.find(params[:id])
 
     render("apartments/show.html.erb")

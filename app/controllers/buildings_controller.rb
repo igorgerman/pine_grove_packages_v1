@@ -6,6 +6,7 @@ class BuildingsController < ApplicationController
   end
 
   def show
+    @apartment = Apartment.new
     @building = Building.find(params[:id])
 
     render("buildings/show.html.erb")

@@ -60,6 +60,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_apartment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for apartment_number -->
+      <div class="form-group">
+        <label for="apartment_number" class="control-label">
+          Apartment number
+        </label>
+
+        <input type="text" id="apartment_number" name="apartment_number" placeholder="Apartment number" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for building_id -->
+      <input type="hidden" name="building_id" value="<%= @building.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Apartment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
