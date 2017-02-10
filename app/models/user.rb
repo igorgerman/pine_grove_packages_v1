@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :apartments,
+             :through => :packages,
+             :source => :apartment
+
   # Validations
 
   # Include default devise modules. Others available are:

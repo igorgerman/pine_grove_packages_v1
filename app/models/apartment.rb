@@ -9,6 +9,10 @@ class Apartment < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :tenants,
+             :through => :packages,
+             :source => :user
+
   # Validations
 
 end
