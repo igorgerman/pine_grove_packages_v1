@@ -23,7 +23,7 @@
         <td><%= package.recipient_name %></td>
         <td><%= package.collected %></td>
         <td><%= package.image %></td>
-        <td><%= package.user_id %></td>
+        <td><%= package.user.created_at %></td>
         <td>
           <a href="/packages/<%= package.id %>" class="btn btn-primary">Show</a>
           <a href="/packages/<%= package.id %>/edit" class="btn btn-warning">Edit</a>
