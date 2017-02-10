@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @apartment.errors.any? %>
+  <% @apartment.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Apartment #<%= @apartment.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_apartment/<%= @apartment.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for apartment_number -->
+      <div class="form-group">
+        <label for="apartment_number" class="control-label">
+          Apartment number
+        </label>
+
+        <input type="text" id="apartment_number" name="apartment_number" placeholder="Apartment number" class="form-control" value="<%= @apartment.apartment_number %>">
+      </div>
+
+      <!-- Label and input for building_id -->
+      <div class="form-group">
+        <label for="building_id" class="control-label">
+          Building
+        </label>
+
+        <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @apartment.building_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Apartment
+      </button>
+      or
+      <a href="/apartments/<%= @apartment.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
