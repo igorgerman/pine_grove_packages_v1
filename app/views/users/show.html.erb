@@ -20,3 +20,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many packages -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Packages
+      </li>
+
+      <% @user.packages.each do |package| %>
+        <li class="list-group-item">
+          <a href="/packages/<%= package.id %>">
+            <%= package.apartment_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/packages/<%= package.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/packages/<%= package.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_package/<%= package.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many apartments -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Apartments
+      </li>
+
+      <% @user.apartments.each do |apartment| %>
+        <li class="list-group-item">
+          <a href="/apartments/<%= apartment.id %>">
+            <%= apartment.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/apartments/<%= apartment.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/apartments/<%= apartment.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_apartment/<%= apartment.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
