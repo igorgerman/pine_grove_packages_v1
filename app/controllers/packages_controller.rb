@@ -34,7 +34,7 @@ class PackagesController < ApplicationController
     @package.apartment_id = params[:apartment_id]
     @package.recipient_name = params[:recipient_name]
     @package.collected = params[:collected]
-    @package.image = params[:image]
+    #@package.image = params[:image]
     @package.user_id = params[:user_id]
 
     save_status = @package.save

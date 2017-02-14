@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     Packages
-    <a href="/packages/new" class="btn btn-lg btn-success">New Package</a>
+    <a href="/packages/new" class="btn btn-lg btn-success">Add A Delivery</a>
   </h1>
 </div><div class="row mb-1">
   <div class="col-md-12">
@@ -36,7 +36,7 @@
                   <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
                   <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
+                  </span> 
               </div>
             </div>
 
@@ -175,7 +175,7 @@
         <td>
           <% if package.apartment.present? %>
             <a href="/apartments/<%= package.apartment.id %>">
-              <%= package.apartment.created_at %>
+              <%= package.apartment.apartment_number %>
             </a>
           <% end %>
         </td>
@@ -191,7 +191,7 @@
         </td>
         <td>
           <a href="/packages/<%= package.id %>" class="btn btn-primary">Show</a>
-          
+
           <% if current_user == package.user %>
             <a href="/packages/<%= package.id %>/edit" class="btn btn-warning">Edit</a>
             <a href="/delete_package/<%= package.id %>" class="btn btn-danger" rel="nofollow">Delete</a>

@@ -24,7 +24,7 @@
           Apartment
         </label>
 
-        <%= select_tag(:apartment_id, options_from_collection_for_select(Apartment.all, :id, :created_at, @package.apartment_id), :class => "form-control") %>
+        <%= select_tag(:apartment_id, options_from_collection_for_select(Apartment.all, :id, :apartment_number, @package.apartment_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for recipient_name -->

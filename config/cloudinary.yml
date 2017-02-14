@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dsxasmrx5
+  api_key: '777846456751669'
+  api_secret: epGsHZXPoTYzuXZqE8OR1-kUAcU
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dsxasmrx5
+  api_key: '777846456751669'
+  api_secret: epGsHZXPoTYzuXZqE8OR1-kUAcU
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dsxasmrx5
+  api_key: '777846456751669'
+  api_secret: epGsHZXPoTYzuXZqE8OR1-kUAcU
+  enhance_image_tag: true
+  static_image_support: false
